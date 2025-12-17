@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Diagram Tree</title>
+    <title>Diagram Tree - Decision Logic</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,20 +20,26 @@
 </header>
 
 <section class="content">
-    <h2>Forward Chaining Decision Tree</h2>
-    <p>Visualisasi alur keputusan berdasarkan Figure 4 Jurnal IJASEIT.</p>
-    
-    <div class="tree-container">
-        <div class="tree-box">Mulai</div>
-        <br><span>&#8595;</span><br>
-        <div class="tree-box">Cek Gejala: Kurang Nafsu Makan (GP04)</div>
-        <br><span>&#8595; (Ya)</span><br>
-        <div class="tree-box">Cek Gejala: Demam (GP15)</div>
-        <br><span>&#8595; (Ya)</span><br>
-        <div class="tree-box" style="background: #dcfce7;">HASIL: Demam 3 Hari (PY05)</div>
-    </div>
+    <div class="tree-layout">
+        <div class="section-title">
+            <h1>Pohon Keputusan (Decision Tree)</h1>
+            <p>Visualisasi alur pelacakan Forward Chaining berdasarkan <strong>Figure 4</strong> pada Jurnal IJASEIT.</p>
+        </div>
 
-    </section>
+        <div class="image-container">
+            <img src="assets/diagramtree.jpg" alt="Diagram Pohon Keputusan Lengkap" class="responsive-img">
+        </div>
+
+        <div class="legend-box">
+            <h3>Keterangan Node:</h3>
+            <ul>
+                <li><strong>GP (01-24):</strong> Gejala Penyakit (Symptom)</li>
+                <li><strong>PY (01-09):</strong> Kode Penyakit (Disease)</li>
+                <li><strong>Y / T:</strong> Keputusan Ya / Tidak</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
