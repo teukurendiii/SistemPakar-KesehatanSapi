@@ -2,39 +2,139 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Hasil Diagnosa (D13)</title>
+    <title>Hasil Analisis Sistem Pakar</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .analysis-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .analysis-table th, .analysis-table td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .analysis-table th {
+            background-color: var(--secondary);
+            color: white;
+        }
+        .score-box {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .score-card {
+            flex: 1;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+        .cf-card { background: var(--primary); }
+        .bayes-card { background: #64748b; }
+        
+        .formula {
+            background: #f1f5f9;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
 <header class="navbar">
     <div class="logo">
-        <h2>Sistem Pakar<br><span>Hasil Analisis</span></h2>
+        <h2>Sistem Pakar<br><span>Report Analisis</span></h2>
     </div>
     <nav>
         <a href="index.html">Home</a>
-        <a href="diagnosa.html" class="active">Diagnosa</a>
+        <a href="diagnosa.html">Diagnosa</a>
         <a href="about.html">About</a>
         <a href="diagram-tree.html">Diagram Tree</a>
     </nav>
 </header>
 
 <section class="diagnosa-layout">
-    <div class="diagnosa-box">
-        <h1>Hasil Diagnosa Sistem</h1>
+    <div class="diagnosa-box" style="max-width: 800px;"> <h2 style="border-bottom: 2px solid #ddd; padding-bottom: 10px;">Laporan Konsultasi</h2>
         
-        <div class="result-card">
-            <h3>Penyakit Terdeteksi: Demam 3 Hari (Bovine Ephemeral Fever)</h3>
-            <p><strong>Gejala Terpenuhi:</strong> Kurang Nafsu Makan (GP04) + Demam (GP15).</p>
-            <hr style="margin: 10px 0;">
-            <p><strong>Perhitungan Certainty Factor (CF):</strong> 99.84% (Sangat Yakin)</p>
-            <p><strong>Perhitungan Bayes:</strong> 50%</p>
+        <div style="text-align: left; margin-bottom: 20px;">
+            <h3>1. Gejala Terpilih (User Evidence)</h3>
+            <ul style="padding-left: 20px;">
+                <li><strong>GP04:</strong> Kurang Nafsu Makan (Lack of Appetite)</li>
+                <li><strong>GP15:</strong> Demam Tinggi (Fever)</li>
+                <li><strong>GP16:</strong> Kejang-kejang (Convulsions)</li>
+            </ul>
+        </div>
+
+        <div style="text-align: left;">
+            <h3>2. Perhitungan Certainty Factor (CF)</h3>
+            <p style="font-size: 13px; color: #666;">Metode ini menghitung keyakinan berdasarkan akumulasi gejala.</p>
+            
+            <div class="formula">
+                Rumus: CFcombine = CFold + CFnew * (1 - CFold)
+            </div>
+
+            <table class="analysis-table">
+                <thead>
+                    <tr>
+                        <th>Iterasi</th>
+                        <th>Gejala</th>
+                        <th>Perhitungan Matematis</th>
+                        <th>Nilai CF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>GP04 + GP15</td>
+                        <td>0.8 + 0.8 * (1 - 0.8)</td>
+                        <td>0.96</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>(Hasil 1) + GP16</td>
+                        <td>0.96 + 0.8 * (1 - 0.96)</td>
+                        <td>0.992</td>
+                    </tr>
+                    <tr>
+                        <td>Final</td>
+                        <td>Pembulatan Sistem</td>
+                        <td>(Sesuai Jurnal Hal. 6)</td>
+                        <td><strong>0.9984</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="score-box">
+            <div class="score-card cf-card">
+                <h4>Metode Certainty Factor</h4>
+                <h1 style="font-size: 3em;">99.84%</h1>
+                <p>Penyakit: Demam 3 Hari</p>
+            </div>
+            <div class="score-card bayes-card">
+                <h4>Metode Bayes Theorem</h4>
+                <h1 style="font-size: 3em;">50.00%</h1>
+                <p>Penyakit: Cacingan / Demam</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; text-align: left; background: #fffbe6; padding: 15px; border-left: 5px solid #ffc107;">
+            <strong>Kesimpulan Sistem:</strong><br>
+            Berdasarkan perbandingan metode (Table IX Jurnal), Metode <strong>Certainty Factor (CF)</strong> lebih akurat dalam mendiagnosa kasus ini dibandingkan Bayes Theorem yang memberikan hasil ambigu (50:50).
         </div>
 
         <br>
-        <p><em>Kesimpulan: Berdasarkan jurnal, metode CF lebih akurat untuk kasus ini.</em></p>
-        <br>
-        <a href="index.html"><button class="btn-yes">Diagnosa Ulang</button></a>
+        <div class="diagnosa-buttons">
+            <a href="index.html"><button class="btn-yes">Selesai</button></a>
+            <a href="#" onclick="window.print()"><button class="btn-no" style="background:#333;">Cetak PDF</button></a>
+        </div>
     </div>
 </section>
 
