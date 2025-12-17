@@ -1,3 +1,136 @@
+:root {
+    --primary: #10b981; 
+    --secondary: #1e293b; 
+    --accent: #f59e0b; 
+    --light: #f1f5f9;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: var(--light);
+    color: var(--secondary);
+}
+
+.navbar {
+    background: var(--secondary);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.logo h2 {
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.logo span {
+    color: var(--primary);
+    font-size: 14px;
+}
+
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a.active, nav a:hover {
+    color: var(--primary);
+}
+
+.hero, .content, .diagnosa-layout {
+    padding: 60px 50px;
+    text-align: center;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/content.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.diagnosa-box {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+.diagnosa-question h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: var(--secondary);
+}
+
+.diagnosa-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-yes {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-yes:hover {
+    background: #059669;
+}
+
+.btn-no {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-no:hover {
+    background: #b91c1c;
+}
+
+.result-card {
+    border-left: 5px solid var(--primary);
+    background: #ecfdf5;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
 .tree-layout {
     width: 100%;
     max-width: 1000px; 
@@ -51,6 +184,7 @@
     margin-bottom: 5px;
     color: #475569;
 }
+
 .about-preview {
     display: flex;
     align-items: center;
@@ -108,6 +242,14 @@
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
     .about-preview {
         flex-direction: column;
         padding: 40px 20px;
