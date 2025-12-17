@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagram Tree</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <h2>Sistem Pakar<br><span>Diagram Keputusan</span></h2>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="diagnosa.html">Diagnosa</a>
+        <a href="about.html">About</a>
+        <a href="diagram-tree.html" class="active">Diagram Tree</a>
+    </nav>
+</header>
+
+<section class="content">
+    <h2>Forward Chaining Decision Tree</h2>
+    <p>Visualisasi alur keputusan berdasarkan Figure 4 Jurnal IJASEIT.</p>
+    
+    <div class="tree-container">
+        <div class="tree-box">Mulai</div>
+        <br><span>&#8595;</span><br>
+        <div class="tree-box">Cek Gejala: Kurang Nafsu Makan (GP04)</div>
+        <br><span>&#8595; (Ya)</span><br>
+        <div class="tree-box">Cek Gejala: Demam (GP15)</div>
+        <br><span>&#8595; (Ya)</span><br>
+        <div class="tree-box" style="background: #dcfce7;">HASIL: Demam 3 Hari (PY05)</div>
+    </div>
+
+    </section>
+
+</body>
+</html>
